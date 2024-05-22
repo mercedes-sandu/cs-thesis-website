@@ -37,6 +37,7 @@ declare module "@mui/material/styles" {
   interface TypographyVariants {
     siteHeader: React.CSSProperties;
     sectionHeader: React.CSSProperties;
+    sectionSubheader: React.CSSProperties;
     sectionP: React.CSSProperties;
     footerP: React.CSSProperties;
     codeHeader: React.CSSProperties;
@@ -46,6 +47,7 @@ declare module "@mui/material/styles" {
   interface TypographyVariantsOptions {
     siteHeader?: React.CSSProperties;
     sectionHeader?: React.CSSProperties;
+    sectionSubheader?: React.CSSProperties;
     sectionP?: React.CSSProperties;
     footerP?: React.CSSProperties;
     codeHeader?: React.CSSProperties;
@@ -57,6 +59,7 @@ declare module "@mui/material/Typography" {
   interface TypographyPropsVariantOverrides {
     siteHeader: true;
     sectionHeader: true;
+    sectionSubheader: true;
     sectionP: true;
     footerP: true;
     codeHeader: true;
@@ -116,6 +119,12 @@ export const theme = createTheme({
       fontWeight: 600,
       letterSpacing: "0.5rem",
     },
+    sectionSubheader: {
+      fontFamily: "Manrope",
+      fontSize: "2rem",
+      fontWeight: 600,
+      letterSpacing: "0.25rem",
+    },
     sectionP: {
       fontFamily: "Manrope",
       fontSize: "1.6rem",
@@ -146,9 +155,10 @@ export const theme = createTheme({
         variantMapping: {
           siteHeader: "h1",
           sectionHeader: "h1",
+          sectionSubheader: "h2",
           sectionP: "p",
           footerP: "p",
-          codeHeader: "h2",
+          codeHeader: "h1",
           codeP: "p",
         },
       },

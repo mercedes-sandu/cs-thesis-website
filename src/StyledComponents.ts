@@ -6,6 +6,7 @@ export const StyledDivider = styled(Divider)(({ theme }) => ({
 }));
 
 export const BoldText = styled("span")(({ theme }) => ({
+    color: theme.palette.secondary[2],
     fontWeight: 700,
 }));
 
