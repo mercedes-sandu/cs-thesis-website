@@ -1,10 +1,8 @@
-import { Box, Typography, useTheme } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import SectionStarter from "./SectionStarter";
-import { StyledDivider } from "../StyledComponents";
+import { ItalicText, StyledDivider } from "../StyledComponents";
 
 function Introduction() {
-  const theme = useTheme();
-
   return (
     <Box
       sx={{
@@ -27,7 +25,7 @@ function Introduction() {
         <SectionStarter />
         <Box
           sx={{
-            width: "90%",
+            width: "80%",
             height: "100%",
             display: "flex",
             flexDirection: "column",
@@ -36,7 +34,20 @@ function Introduction() {
           <Typography variant="sectionHeader" sx={{ mb: 3 }}>
             INTRODUCTION
           </Typography>
-          <Typography variant="sectionP">Blah blah blah yap yap yap</Typography>
+          <Typography variant="sectionP" sx={{ mb: 3 }}>
+            Graphs are extremely versatile data structures used to represent
+            pieces of data and the connections between them in a variety of
+            computer science fields. Specifically, in the video game development
+            space, graphs can be used to represent a variety of concepts, from
+            character relationships to waypoint-based maps to branching
+            questlines. Game developers often seek to randomly generate
+            such game content to promote replayability, integrate content with
+            mechanics, and lessen the manual design workload in the development
+            process. 
+          </Typography>
+          <Typography variant="sectionP" sx={{ mb: 3 }}>
+            For my Master's thesis in Computer Science at Northwestern University, I expanded upon a pre-existing system, <ItalicText>CatSAT</ItalicText>, by writing algorithms that allow the system to randomly generate graphs under constraints imposed by the user, such as "the graph must be connected" or "nodes X and Y must be connected." In this website, I'll discuss the theory behind the algorithms and system, existing difficulties in randomized graph generation, implementations of my algorithms, and an overall view of video game AI and content generation.
+          </Typography>
         </Box>
       </Box>
       <StyledDivider />

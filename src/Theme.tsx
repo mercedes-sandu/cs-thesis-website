@@ -121,6 +121,8 @@ export const theme = createTheme({
       fontSize: "1.6rem",
       textAlign: "justify",
       fontWeight: 400,
+      textIndent: "4rem",
+      lineHeight: "3rem",
     },
     footerP: {
       fontFamily: "Manrope",

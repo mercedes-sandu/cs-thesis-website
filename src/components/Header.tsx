@@ -6,6 +6,14 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 function Header() {
   const theme = useTheme();
 
+  function handleMenuClick(): void {
+    // TODO: implement sidebar
+  }
+
+  function handleGitHubClick(): void {
+    window.open("https://github.com/mercedes-sandu", "_blank");
+  }
+
   return (
     <Box
       sx={{
@@ -25,15 +33,29 @@ function Header() {
           pb: 1,
         }}
       >
-        <IconButton>
+        <IconButton onClick={handleMenuClick}>
           <MenuIcon
-            sx={{ color: theme.palette.text.primary, fontSize: "2rem" }}
+            sx={{
+              color: theme.palette.text.primary,
+              fontSize: "2rem",
+              "&:hover": {
+                color: theme.palette.secondary[9],
+                transition: "color 0.2s ease-in-out",
+              },
+            }}
           />
         </IconButton>
         <Typography variant="siteHeader">GRAPH CONSTRAINTS</Typography>
-        <IconButton>
+        <IconButton onClick={handleGitHubClick}>
           <GitHubIcon
-            sx={{ color: theme.palette.text.primary, fontSize: "2rem" }}
+            sx={{
+              color: theme.palette.text.primary,
+              fontSize: "2rem",
+              "&:hover": {
+                color: theme.palette.secondary[9],
+                transition: "color 0.2s ease-in-out",
+              },
+            }}
           />
         </IconButton>
       </Box>

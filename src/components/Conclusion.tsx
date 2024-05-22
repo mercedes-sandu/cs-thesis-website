@@ -27,7 +27,7 @@ function Conclusion() {
         <SectionStarter />
         <Box
           sx={{
-            width: "90%",
+            width: "80%",
             height: "100%",
             display: "flex",
             flexDirection: "column",
