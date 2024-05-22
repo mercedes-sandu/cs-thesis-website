@@ -1,25 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Box, CssBaseline, ThemeProvider } from '@mui/material';
+import { theme } from './Theme';
+import Header from './components/Header';
+import Introduction from './components/Introduction';
+import PCG from './components/PCG';
+import GraphTheory from './components/GraphTheory';
+import SATSolvers from './components/SATSolvers';
+import GraphConstraints from './components/GraphConstraints';
+import Conclusion from './components/Conclusion';
+import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Box sx={{
+        display: "flex",
+        flexDirection: "column",
+        width: "100vw",
+        padding: "5%",
+        backgroundColor: theme.palette.background.default,
+      }}>
+        <Header />
+        <Introduction />
+        <PCG />
+        <GraphTheory />
+        <SATSolvers />
+        <GraphConstraints />
+        <Conclusion />
+        <Footer />
+      </Box>
+    </ThemeProvider>
   );
 }
 
