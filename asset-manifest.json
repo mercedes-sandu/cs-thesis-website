@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/static/css/main.c6756045.css",
-    "main.js": "/static/js/main.2be48a5f.js",
-    "index.html": "/index.html",
-    "main.c6756045.css.map": "/static/css/main.c6756045.css.map",
-    "main.2be48a5f.js.map": "/static/js/main.2be48a5f.js.map"
+    "main.css": "/cs-thesis-website/static/css/main.c6756045.css",
+    "main.js": "/cs-thesis-website/static/js/main.acd9d8e4.js",
+    "index.html": "/cs-thesis-website/index.html",
+    "main.c6756045.css.map": "/cs-thesis-website/static/css/main.c6756045.css.map",
+    "main.acd9d8e4.js.map": "/cs-thesis-website/static/js/main.acd9d8e4.js.map"
   },
   "entrypoints": [
     "static/css/main.c6756045.css",
-    "static/js/main.2be48a5f.js"
+    "static/js/main.acd9d8e4.js"
   ]
 }
