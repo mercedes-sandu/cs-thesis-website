@@ -54,7 +54,7 @@ function PCG() {
             not limited to) sidescrolling levels, character design, terrain,
             story, dialogue, and in-game items.
           </Typography>
-          <Typography variant="sectionSubheader" sx={{ mb: 3 }}>
+          <Typography variant="sectionSubheader" sx={{ mt: 3, mb: 3 }}>
             What are Reasons to Use PCG in Games?
           </Typography>
           <Typography variant="sectionP" sx={{ mb: 3 }}>
@@ -80,7 +80,9 @@ function PCG() {
                 <ListItemText
                   primary={
                     <Typography variant="sectionP">
-                      <BoldText>Adaptability:</BoldText> blah blah
+                      <BoldText>Adaptability:</BoldText> The ability for a game
+                      to adjust to a player's skill level, preferences, or other
+                      factors.
                     </Typography>
                   }
                 />
@@ -89,7 +91,15 @@ function PCG() {
                 <ListItemText
                   primary={
                     <Typography variant="sectionP">
-                      <BoldText>Mechanics and Dynamics:</BoldText> blah blah
+                      <BoldText>Mechanics and Dynamics:</BoldText> Described in{" "}
+                      <StyledLink href="https://www.researchgate.net/publication/228884866_MDA_A_Formal_Approach_to_Game_Design_and_Game_Research">
+                        this paper
+                      </StyledLink>
+                      , mechanics are defined by "the particular components of
+                      the game, at the level of data representation and
+                      algorithms," and dynamics are defined by "the run-time
+                      behavior of the mechanics acting on player inputs and each
+                      others outputs over time."
                     </Typography>
                   }
                 />
@@ -98,18 +108,48 @@ function PCG() {
                 <ListItemText
                   primary={
                     <Typography variant="sectionP">
-                      <BoldText>Player's Control over Content:</BoldText> blah
-                      blah
+                      <BoldText>Player's Control over Content:</BoldText> The
+                      ability or lack thereof for a player to control the
+                      generation of content in a game.
+                    </Typography>
+                  }
+                />
+              </ListItem>
+              <ListItem sx={{ display: "list-item" }}>
+                <ListItemText
+                  primary={
+                    <Typography variant="sectionP">
+                      <BoldText>Reducing Development Debt:</BoldText> Requiring
+                      less time and effort to create content for a game that can
+                      otherwise be generated algorithmically. This can be
+                      especially useful for indie developers or small teams with
+                      limited resources.
                     </Typography>
                   }
                 />
               </ListItem>
             </List>
           </Typography>
-          <Typography variant="sectionSubheader" sx={{ mb: 3 }}>
+          <Typography variant="sectionSubheader" sx={{ mt: 3, mb: 3 }}>
             Real-World Examples of PCG
           </Typography>
-          <Typography variant="sectionP"></Typography>
+          <Typography variant="sectionP">
+            There are numerous ways PCG is used in video games today. Some of my
+            favorite examples include:
+          </Typography>
+          <List sx={{ listStyleType: "disc", pl: 4 }}>
+            <ListItem sx={{ display: "list-item" }}>
+              <ListItemText
+                primary={
+                  <Typography variant="sectionP">
+                    <BoldText>Adaptability:</BoldText> The ability for a game to
+                    adjust to a player's skill level, preferences, or other
+                    factors.
+                  </Typography>
+                }
+              />
+            </ListItem>
+          </List>
         </Box>
       </Box>
       <StyledDivider />

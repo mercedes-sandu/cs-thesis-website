@@ -1,4 +1,5 @@
 import { Divider, Link, styled } from "@mui/material";
+import { accentColor } from "./App";
 
 export const StyledDivider = styled(Divider)(({ theme }) => ({
     width: "100%",
@@ -6,7 +7,7 @@ export const StyledDivider = styled(Divider)(({ theme }) => ({
 }));
 
 export const BoldText = styled("span")(({ theme }) => ({
-    color: theme.palette.secondary[2],
+    color: accentColor,
     fontWeight: 700,
 }));
 
@@ -17,7 +18,7 @@ export const ItalicText = styled("span")(({ theme }) => ({
 export const StyledLink = styled(Link)(({ theme }) => ({
     color: theme.palette.primary.main,
     "&:hover": {
-        color: theme.palette.secondary[9],
+        color: accentColor,
         transition: "color 0.2s ease-in-out",
     },
 }));

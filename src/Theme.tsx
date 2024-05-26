@@ -75,6 +75,19 @@ const breakpoints = {
   xl: 1536,
 };
 
+export const accentColors = [
+  "#446fcb",
+  "#a081cf",
+  "#ed94c0",
+  "#52b0c4",
+  "#36c397",
+  "#b98b55",
+  "#7eaf55",
+  "#f45953",
+  "#f2b53a",
+  "#2bbe3e",
+];
+
 export const theme = createTheme({
   palette: {
     text: {
