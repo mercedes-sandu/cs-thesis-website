@@ -1,12 +1,11 @@
 import { Box, Typography, useTheme } from "@mui/material";
 import SectionStarter from "./SectionStarter";
 import { StyledDivider } from "../StyledComponents";
-// import hljs from "highlight.js";
-// import "highlight.js/styles/default.css";
+import CodeSnippet from "./CodeSnippet";
+import { graphClass } from "./codeSnippets";
 
 function GraphConstraints() {
   const theme = useTheme();
-  const codeSnippet = `public class Graph() {}`;
 
   return (
     <Box
@@ -40,9 +39,7 @@ function GraphConstraints() {
             GRAPH CONSTRAINTS
           </Typography>
           <Typography variant="sectionP">Blah blah blah yap yap yap</Typography>
-          {/* <code>
-            {codeSnippet}
-          </code> */}
+          <CodeSnippet fileName="Graph.cs" codeSnippet={graphClass} />
         </Box>
       </Box>
       <StyledDivider />

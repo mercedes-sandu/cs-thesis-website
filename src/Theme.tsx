@@ -89,7 +89,7 @@ export const theme = createTheme({
     },
     secondary: {
       main: "#cfcfcf",
-      1: "#262626",
+      1: "#292C34",
       2: "#446fcb",
       3: "#a081cf",
       4: "#ed94c0",

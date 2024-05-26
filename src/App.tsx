@@ -1,34 +1,17 @@
-import { Box, CssBaseline, ThemeProvider } from '@mui/material';
+import { CssBaseline, ThemeProvider } from '@mui/material';
 import { theme } from './Theme';
-import Header from './components/Header';
-import Introduction from './components/Introduction';
-import PCG from './components/PCG';
-import GraphTheory from './components/GraphTheory';
-import SATSolvers from './components/SATSolvers';
-import GraphConstraints from './components/GraphConstraints';
-import Conclusion from './components/Conclusion';
-import Footer from './components/Footer';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import HomePage from './HomePage';
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Box sx={{
-        display: "flex",
-        flexDirection: "column",
-        width: "100vw",
-        padding: "5%",
-        backgroundColor: theme.palette.background.default,
-      }}>
-        <Header />
-        <Introduction />
-        <PCG />
-        <GraphTheory />
-        <SATSolvers />
-        <GraphConstraints />
-        <Conclusion />
-        <Footer />
-      </Box>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+        </Routes>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }
