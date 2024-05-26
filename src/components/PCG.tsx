@@ -67,7 +67,7 @@ function PCG() {
               <ListItem sx={{ display: "list-item" }}>
                 <ListItemText
                   primary={
-                    <Typography variant="sectionP">
+                    <Typography variant="listP" sx={{ textIndent: 0 }}>
                       <BoldText>Replaybility:</BoldText> The ability for a
                       player to play the game again and again without getting
                       bored, due to varied player experiences in each
@@ -79,7 +79,7 @@ function PCG() {
               <ListItem sx={{ display: "list-item" }}>
                 <ListItemText
                   primary={
-                    <Typography variant="sectionP">
+                    <Typography variant="listP" sx={{ textIndent: 0 }}>
                       <BoldText>Adaptability:</BoldText> The ability for a game
                       to adjust to a player's skill level, preferences, or other
                       factors.
@@ -90,7 +90,7 @@ function PCG() {
               <ListItem sx={{ display: "list-item" }}>
                 <ListItemText
                   primary={
-                    <Typography variant="sectionP">
+                    <Typography variant="listP" sx={{ textIndent: 0 }}>
                       <BoldText>Mechanics and Dynamics:</BoldText> Described in{" "}
                       <StyledLink href="https://www.researchgate.net/publication/228884866_MDA_A_Formal_Approach_to_Game_Design_and_Game_Research">
                         this paper
@@ -107,7 +107,7 @@ function PCG() {
               <ListItem sx={{ display: "list-item" }}>
                 <ListItemText
                   primary={
-                    <Typography variant="sectionP">
+                    <Typography variant="listP" sx={{ textIndent: 0 }}>
                       <BoldText>Player's Control over Content:</BoldText> The
                       ability or lack thereof for a player to control the
                       generation of content in a game.
@@ -118,7 +118,7 @@ function PCG() {
               <ListItem sx={{ display: "list-item" }}>
                 <ListItemText
                   primary={
-                    <Typography variant="sectionP">
+                    <Typography variant="listP" sx={{ textIndent: 0 }}>
                       <BoldText>Reducing Development Debt:</BoldText> Requiring
                       less time and effort to create content for a game that can
                       otherwise be generated algorithmically. This can be
@@ -141,10 +141,89 @@ function PCG() {
             <ListItem sx={{ display: "list-item" }}>
               <ListItemText
                 primary={
-                  <Typography variant="sectionP">
-                    <BoldText>Adaptability:</BoldText> The ability for a game to
-                    adjust to a player's skill level, preferences, or other
-                    factors.
+                  <Typography variant="listP">
+                    <StyledLink href="https://www.minecraft.net/en-us">
+                      Minecraft
+                    </StyledLink>
+                    ,{" "}
+                    <StyledLink href="https://astroneer.space/">
+                      Astroneer
+                    </StyledLink>
+                    , and{" "}
+                    <StyledLink href="https://www.nomanssky.com/">
+                      No Man's Sky
+                    </StyledLink>{" "}
+                    all use PCG to generate world maps, terrains, and planets.
+                    This caters to both the replayability of the game and
+                    reducing development debt, as an entirely new world can be
+                    created every time a player starts a new game.
+                  </Typography>
+                }
+              />
+            </ListItem>
+            <ListItem sx={{ display: "list-item" }}>
+              <ListItemText
+                primary={
+                  <Typography variant="listP">
+                    <StyledLink href="https://borderlands.2k.com/">
+                      Borderlands
+                    </StyledLink>{" "}
+                    uses PCG to generate weapons, shields, and other in-game
+                    items. This caters to the mechanics and dynamics of the
+                    game, as players can find new and unique items that cater to
+                    their preferred playstyle.
+                  </Typography>
+                }
+              />
+            </ListItem>
+            <ListItem sx={{ display: "list-item" }}>
+              <ListItemText
+                primary={
+                  <Typography variant="listP">
+                    <StyledLink href="http://www.bay12games.com/dwarves/">
+                      Dwarf Fortress
+                    </StyledLink>{" "}
+                    uses PCG to generate just about everything in the game, from
+                    characters to map to story. This caters to all aspects of
+                    PCG, in my opinion.
+                  </Typography>
+                }
+              />
+            </ListItem>
+            <ListItem sx={{ display: "list-item" }}>
+              <ListItemText
+                primary={
+                  <Typography variant="listP">
+                    <StyledLink href="https://braceyourselfgames.com/crypt-of-the-necrodancer/">
+                      Crypt of the Necrodancer
+                    </StyledLink>
+                    ,{" "}
+                    <StyledLink href="https://enterthegungeon.com/">
+                      Enter the Gungeon
+                    </StyledLink>
+                    , and{" "}
+                    <StyledLink href="https://store.steampowered.com/app/113200/The_Binding_of_Isaac/">
+                      The Binding of Isaac
+                    </StyledLink>{" "}
+                    all use PCG to generate levels and rooms. This caters to the
+                    replayability of the game, as players can experience new
+                    levels and rooms each time they play.
+                  </Typography>
+                }
+              />
+            </ListItem>
+            <ListItem sx={{ display: "list-item" }}>
+              <ListItemText
+                primary={
+                  <Typography variant="listP">
+                    <StyledLink href="https://store.steampowered.com/app/550/Left_4_Dead_2/">
+                      Left 4 Dead 2
+                    </StyledLink>{" "}
+                    uses PCG to change the difficulty of the game based on
+                    player performance. This caters to the adaptability of the
+                    game, as the game can adjust to a player's skill level. It
+                    also implicitly lets the player control the content of the
+                    game, as the game adjusts to the player's performance.
                   </Typography>
                 }
               />

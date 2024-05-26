@@ -40,7 +40,7 @@ declare module "@mui/material/styles" {
     sectionSubheader: React.CSSProperties;
     sectionP: React.CSSProperties;
     footerP: React.CSSProperties;
-    codeHeader: React.CSSProperties;
+    listP: React.CSSProperties;
     codeP: React.CSSProperties;
   }
 
@@ -50,7 +50,7 @@ declare module "@mui/material/styles" {
     sectionSubheader?: React.CSSProperties;
     sectionP?: React.CSSProperties;
     footerP?: React.CSSProperties;
-    codeHeader?: React.CSSProperties;
+    listP?: React.CSSProperties;
     codeP?: React.CSSProperties;
   }
 }
@@ -62,7 +62,7 @@ declare module "@mui/material/Typography" {
     sectionSubheader: true;
     sectionP: true;
     footerP: true;
-    codeHeader: true;
+    listP: true;
     codeP: true;
   }
 }
@@ -151,6 +151,13 @@ export const theme = createTheme({
       fontSize: "1.4rem",
       fontWeight: 400,
     },
+    listP: {
+      fontFamily: "Manrope",
+      fontSize: "1.6rem",
+      fontWeight: 400,
+      textAlign: "justify",
+      lineHeight: "3rem",
+    },
     codeP: {
       fontFamily: "monospace",
       fontSize: "1rem",
@@ -166,7 +173,7 @@ export const theme = createTheme({
           sectionSubheader: "h2",
           sectionP: "p",
           footerP: "p",
-          codeHeader: "h1",
+          listP: "p",
           codeP: "p",
         },
       },
