@@ -20,7 +20,14 @@ function Footer() {
           justifyContent: "space-evenly",
         }}
       >
-        <Typography variant="footerP">Mercedes Sandu</Typography>
+        <StyledLink
+          href="https://mercedessandu.com"
+          variant="footerP"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Mercedes Sandu
+        </StyledLink>
         <Typography variant="footerP">//</Typography>
         {/* TODO: add */}
         <StyledLink

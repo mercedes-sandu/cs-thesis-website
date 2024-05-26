@@ -38,7 +38,9 @@ function GraphConstraints() {
           <Typography variant="sectionHeader" sx={{ mb: 3 }}>
             GRAPH CONSTRAINTS
           </Typography>
-          <Typography variant="sectionP">Blah blah blah yap yap yap</Typography>
+          <Typography variant="sectionP" sx={{ mb: 3 }}>
+            Blah blah blah yap yap yap
+          </Typography>
           <CodeSnippet fileName="Graph.cs" codeSnippet={graphClass} />
         </Box>
       </Box>

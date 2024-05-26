@@ -40,13 +40,22 @@ function Introduction() {
             computer science fields. Specifically, in the video game development
             space, graphs can be used to represent a variety of concepts, from
             character relationships to waypoint-based maps to branching
-            questlines. Game developers often seek to randomly generate
-            such game content to promote replayability, integrate content with
+            questlines. Game developers often seek to randomly generate such
+            game content to promote replayability, integrate content with
             mechanics, and lessen the manual design workload in the development
-            process. 
+            process.
           </Typography>
           <Typography variant="sectionP" sx={{ mb: 3 }}>
-            For my Master's thesis in Computer Science at Northwestern University, I expanded upon a pre-existing system, <ItalicText>CatSAT</ItalicText>, by writing algorithms that allow the system to randomly generate graphs under constraints imposed by the user, such as "the graph must be connected" or "nodes X and Y must be connected." In this website, I'll discuss the theory behind the algorithms and system, existing difficulties in randomized graph generation, implementations of my algorithms, and an overall view of video game AI and content generation.
+            For my Master's thesis in Computer Science at Northwestern
+            University, I expanded upon a pre-existing system,{" "}
+            <ItalicText>CatSAT</ItalicText>, by writing algorithms that allow
+            the system to randomly generate graphs under constraints imposed by
+            the user, such as "the graph must be connected" or "nodes X and Y
+            must be connected." In this website, I'll discuss the theory behind
+            the algorithms and system, existing difficulties in randomized graph
+            generation, implementations of my algorithms, and an overall view of
+            video game AI and content generation. My thesis and relevant code
+            can be found in the footer at the bottom of the page. Enjoy! 🎮
           </Typography>
         </Box>
       </Box>

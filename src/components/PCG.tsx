@@ -52,7 +52,7 @@ function PCG() {
             randomized data algorithmically over a specific domain. In video
             games, specifically, many notable examples of PCG include (but are
             not limited to) sidescrolling levels, character design, terrain,
-            story, dialogue, and in-game items. 
+            story, dialogue, and in-game items.
           </Typography>
           <Typography variant="sectionSubheader" sx={{ mb: 3 }}>
             What are Reasons to Use PCG in Games?

@@ -36,7 +36,9 @@ function GraphTheory() {
           <Typography variant="sectionHeader" sx={{ mb: 3 }}>
             GRAPH THEORY
           </Typography>
-          <Typography variant="sectionP">Blah blah blah yap yap yap</Typography>
+          <Typography variant="sectionP" sx={{ mb: 3 }}>
+            Blah blah blah yap yap yap
+          </Typography>
         </Box>
       </Box>
       <StyledDivider />

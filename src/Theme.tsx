@@ -138,14 +138,9 @@ export const theme = createTheme({
       fontSize: "1.4rem",
       fontWeight: 400,
     },
-    codeHeader: {
-      fontFamily: "Courier Prime",
-      fontSize: "1.8rem",
-      fontWeight: 400,
-    },
     codeP: {
-      fontFamily: "Courier Prime",
-      fontSize: "1.8rem",
+      fontFamily: "monospace",
+      fontSize: "1rem",
       fontWeight: 400,
     },
   },
