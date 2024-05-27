@@ -1,12 +1,12 @@
 import { Box, useTheme } from "@mui/material";
-import Header from "./components/Header";
-import Introduction from "./components/Introduction";
-import PCG from "./components/PCG";
-import GraphTheory from "./components/GraphTheory";
-import SATSolvers from "./components/SATSolvers";
-import GraphConstraints from "./components/GraphConstraints";
-import Conclusion from "./components/Conclusion";
-import Footer from "./components/Footer";
+import Header from "./components/Header.tsx";
+import Introduction from "./components/Introduction.tsx";
+import PCG from "./components/PCG.tsx";
+import GraphTheory from "./components/GraphTheory.tsx";
+import SATSolvers from "./components/SATSolvers.tsx";
+import GraphConstraints from "./components/GraphConstraints.tsx";
+import Conclusion from "./components/Conclusion.tsx";
+import Footer from "./components/Footer.tsx";
 
 function HomePage() {
   const theme = useTheme();

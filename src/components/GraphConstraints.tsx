@@ -1,13 +1,11 @@
-import { Box, Typography, useTheme } from "@mui/material";
-import SectionStarter from "./SectionStarter";
+import { Box, Typography } from "@mui/material";
+import SectionStarter from "./SectionStarter.tsx";
 import { ItalicText, StyledDivider } from "../StyledComponents";
 import CodeSnippet from "./CodeSnippet";
 import CollapsibleComponent from "./CollapsibleComponent";
-import { problemDeclaration, graphClass } from "./codeSnippets";
+import { problemDeclaration, graphClass } from "./CodeSnippets.ts";
 
 function GraphConstraints() {
-  const theme = useTheme();
-
   return (
     <Box
       sx={{

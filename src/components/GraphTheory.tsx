@@ -1,10 +1,8 @@
-import { Box, Typography, useTheme } from "@mui/material";
-import SectionStarter from "./SectionStarter";
+import { Box, Typography } from "@mui/material";
+import SectionStarter from "./SectionStarter.tsx";
 import { StyledDivider } from "../StyledComponents";
 
 function GraphTheory() {
-  const theme = useTheme();
-
   return (
     <Box
       sx={{

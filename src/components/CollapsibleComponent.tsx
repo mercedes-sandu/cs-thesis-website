@@ -1,77 +1,78 @@
 import React, {
-  PropsWithChildren,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
-import { Box, IconButton, Typography, useTheme } from "@mui/material";
-import { StyledDivider } from "../StyledComponents";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import ExpandLessIcon from "@mui/icons-material/ExpandLess";
-import { accentColor } from "../App";
-
-const CollapsibleComponent: React.FC<
-  PropsWithChildren<{ isExpanded: boolean; title: string }>
-> = ({ isExpanded, children, title }) => {
-  const theme = useTheme();
-  const [expanded, setExpanded] = useState<boolean>(isExpanded);
-  const ref = useRef<HTMLDivElement>(null);
-  const [contentHeight, setContentHeight] = useState<number>(0);
-
-  const toggleExpanded = useCallback(() => {
-    setExpanded((prev) => !prev);
-  }, []);
-
-  useEffect(() => {
-    if (ref.current) {
-      setContentHeight(ref.current.clientHeight);
-    }
-  }, [children]);
-
-  return (
-    <Box sx={{ width: "100%", display: "flex", flexDirection: "column", }}>
-      <StyledDivider />
-      <Box
-        sx={{
-          width: "100%",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          padding: 1,
-        }}
-      >
-        <Typography variant="sectionSubheader">{title}</Typography>
-        <IconButton
-          onClick={toggleExpanded}
+    PropsWithChildren,
+    useCallback,
+    useEffect,
+    useRef,
+    useState,
+  } from "react";
+  import { Box, IconButton, Typography, useTheme } from "@mui/material";
+  import { StyledDivider } from "../StyledComponents";
+  import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+  import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+  import { accentColor } from "../App";
+  
+  const CollapsibleComponent: React.FC<
+    PropsWithChildren<{ isExpanded: boolean; title: string }>
+  > = ({ isExpanded, children, title }) => {
+    const theme = useTheme();
+    const [expanded, setExpanded] = useState<boolean>(isExpanded);
+    const ref = useRef<HTMLDivElement>(null);
+    const [contentHeight, setContentHeight] = useState<number>(0);
+  
+    const toggleExpanded = useCallback(() => {
+      setExpanded((prev) => !prev);
+    }, []);
+  
+    useEffect(() => {
+      if (ref.current) {
+        setContentHeight(ref.current.clientHeight);
+      }
+    }, [children]);
+  
+    return (
+      <Box sx={{ width: "100%", display: "flex", flexDirection: "column", }}>
+        <StyledDivider />
+        <Box
           sx={{
-            color: theme.palette.text.primary,
-            fontSize: "2rem",
-            "&:hover": {
-              color: accentColor,
-              transition: "color 0.2s ease-in-out",
-            },
+            width: "100%",
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            padding: 1,
           }}
         >
-          {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-        </IconButton>
+          <Typography variant="sectionSubheader">{title}</Typography>
+          <IconButton
+            onClick={toggleExpanded}
+            sx={{
+              color: theme.palette.text.primary,
+              fontSize: "2rem",
+              "&:hover": {
+                color: accentColor,
+                transition: "color 0.2s ease-in-out",
+              },
+            }}
+          >
+            {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+          </IconButton>
+        </Box>
+        <Box
+          sx={{
+            height: expanded ? contentHeight : 0,
+            transition: "height 200ms ease-in-out",
+            overflow: "hidden",
+            width: "100%",
+            pl: 1,
+            pr: 1,
+            mb: 1,
+          }}
+        >
+          <Box ref={ref}>{children}</Box>
+        </Box>
+        <StyledDivider />
       </Box>
-      <Box
-        sx={{
-          height: expanded ? contentHeight : 0,
-          transition: "height 200ms ease-in-out",
-          overflow: "hidden",
-          width: "100%",
-          pl: 1,
-          pr: 1,
-          mb: 1,
-        }}
-      >
-        <Box ref={ref}>{children}</Box>
-      </Box>
-      <StyledDivider />
-    </Box>
-  );
-};
-
-export default CollapsibleComponent;
+    );
+  };
+  
+  export default CollapsibleComponent;
+  

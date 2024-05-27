@@ -6,12 +6,12 @@ export const StyledDivider = styled(Divider)(({ theme }) => ({
     backgroundColor: theme.palette.text.primary,
 }));
 
-export const BoldText = styled("span")(({ theme }) => ({
+export const BoldText = styled("span")(() => ({
     color: accentColor,
     fontWeight: 700,
 }));
 
-export const ItalicText = styled("span")(({ theme }) => ({
+export const ItalicText = styled("span")(() => ({
     fontStyle: "italic",
 }));
 

@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import SectionStarter from "./SectionStarter";
+import SectionStarter from "./SectionStarter.tsx";
 import { ItalicText, StyledDivider } from "../StyledComponents";
 
 function Introduction() {
