@@ -4,8 +4,9 @@ import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import csharpLogo from "../csharp-logo.svg";
 
 interface CodeSnippetProps {
-  fileName: string;
+  fileName?: string;
   codeSnippet: string;
+  showTitle: boolean;
 }
 
 function CodeSnippet(props: CodeSnippetProps) {
@@ -25,7 +26,8 @@ function CodeSnippet(props: CodeSnippetProps) {
           width: "fit-content",
           height: "fit-content",
           maxWidth: "80%",
-          pt: 3,
+          minWidth: "40%",
+          pt: props.showTitle ? 3 : 0,
           pl: 3,
           pr: 3,
           backgroundColor: theme.palette.secondary[1],
@@ -34,63 +36,73 @@ function CodeSnippet(props: CodeSnippetProps) {
           flexDirection: "column",
         }}
       >
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-          }}
-        >
+        {props.showTitle && (
           <Box
             sx={{
-              width: "20%",
               display: "flex",
               flexDirection: "row",
-              justifyContent: "start",
-            }}
-          >
-            <Box
-              sx={{
-                width: "16px",
-                height: "16px",
-                borderRadius: "50%",
-                backgroundColor: theme.palette.secondary[9],
-                mr: 1,
-              }}
-            />
-            <Box
-              sx={{
-                width: "16px",
-                height: "16px",
-                borderRadius: "50%",
-                backgroundColor: theme.palette.secondary[10],
-                mr: 1,
-              }}
-            />
-            <Box
-              sx={{
-                width: "16px",
-                height: "16px",
-                borderRadius: "50%",
-                backgroundColor: theme.palette.secondary[11],
-                mr: 1,
-              }}
-            />
-          </Box>
-          <Box
-            sx={{
-              width: "60%",
-              display: "flex",
-              justifyContent: "center",
               alignItems: "center",
             }}
           >
-            <img src={csharpLogo} width="20px" height="20px" />
-            <Typography variant="codeP" sx={{ ml: 1 }}>
-              {props.fileName}
-            </Typography>
+            <Box
+              sx={{
+                width: "20%",
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "start",
+              }}
+            >
+              <Box
+                sx={{
+                  width: "16px",
+                  minWidth: "16px",
+                  height: "16px",
+                  borderRadius: "50%",
+                  aspectRatio: 1,
+                  backgroundColor: theme.palette.secondary[9],
+                  mr: 1,
+                }}
+              />
+              <Box
+                sx={{
+                  width: "16px",
+                  minWidth: "16px",
+                  height: "16px",
+                  aspectRatio: 1,
+                  borderRadius: "50%",
+                  backgroundColor: theme.palette.secondary[10],
+                  mr: 1,
+                }}
+              />
+              <Box
+                sx={{
+                  width: "16px",
+                  minWidth: "16px",
+                  height: "16px",
+                  aspectRatio: 1,
+                  borderRadius: "50%",
+                  backgroundColor: theme.palette.secondary[11],
+                  mr: 1,
+                }}
+              />
+            </Box>
+            <Box
+              sx={{
+                width: "60%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <img src={csharpLogo} width="20px" height="20px" />
+              <Typography variant="codeP" sx={{ ml: 1 }}>
+                {props.fileName}
+              </Typography>
+            </Box>
+            <Box sx={{ width: "20%" }} />
           </Box>
-        </Box>
+        )}
+
         <SyntaxHighlighter
           showLineNumbers
           showInlineLineNumbers

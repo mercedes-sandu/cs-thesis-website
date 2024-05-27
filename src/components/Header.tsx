@@ -2,6 +2,7 @@ import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { StyledDivider } from "../StyledComponents";
 import MenuIcon from "@mui/icons-material/Menu";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import { accentColor } from "../App";
 
 function Header() {
   const theme = useTheme();
@@ -39,7 +40,7 @@ function Header() {
               color: theme.palette.text.primary,
               fontSize: "2rem",
               "&:hover": {
-                color: theme.palette.secondary[9],
+                color: accentColor,
                 transition: "color 0.2s ease-in-out",
               },
             }}
@@ -52,7 +53,7 @@ function Header() {
               color: theme.palette.text.primary,
               fontSize: "2rem",
               "&:hover": {
-                color: theme.palette.secondary[9],
+                color: accentColor,
                 transition: "color 0.2s ease-in-out",
               },
             }}

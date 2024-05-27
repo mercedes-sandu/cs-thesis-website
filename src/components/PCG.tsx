@@ -10,8 +10,6 @@ import SectionStarter from "./SectionStarter";
 import { BoldText, StyledDivider, StyledLink } from "../StyledComponents";
 
 function PCG() {
-  const theme = useTheme();
-
   return (
     <Box
       sx={{

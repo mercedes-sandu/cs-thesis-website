@@ -1,3 +1,5 @@
+export const problemDeclaration = `Problem p = new Problem();`
+
 export const graphClass = `public Graph(Problem p, int numVertices, float initialDensity = 0.5f)
 {
     Problem = p;

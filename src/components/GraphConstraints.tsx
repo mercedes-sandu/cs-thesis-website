@@ -1,8 +1,9 @@
 import { Box, Typography, useTheme } from "@mui/material";
 import SectionStarter from "./SectionStarter";
-import { StyledDivider } from "../StyledComponents";
+import { ItalicText, StyledDivider } from "../StyledComponents";
 import CodeSnippet from "./CodeSnippet";
-import { graphClass } from "./codeSnippets";
+import CollapsibleComponent from "./CollapsibleComponent";
+import { problemDeclaration, graphClass } from "./codeSnippets";
 
 function GraphConstraints() {
   const theme = useTheme();
@@ -38,10 +39,18 @@ function GraphConstraints() {
           <Typography variant="sectionHeader" sx={{ mb: 3 }}>
             GRAPH CONSTRAINTS
           </Typography>
-          <Typography variant="sectionP" sx={{ mb: 3 }}>
-            Blah blah blah yap yap yap
+          <Typography variant="sectionSubheader" sx={{ mb: 3 }}>
+            How a <ItalicText>CatSAT</ItalicText> Graph Problem is Initialized
           </Typography>
-          <CodeSnippet fileName="Graph.cs" codeSnippet={graphClass} />
+          <Typography variant="sectionP" sx={{ mb: 3 }}>
+            Using <ItalicText>CatSAT</ItalicText>, a constraint problem is
+            created using
+          </Typography>
+          <CodeSnippet codeSnippet={problemDeclaration} showTitle={false} />
+          <CodeSnippet fileName="Graph.cs" codeSnippet={graphClass} showTitle={true} />
+          <CollapsibleComponent isExpanded title="Test">
+            hi
+          </CollapsibleComponent>
         </Box>
       </Box>
       <StyledDivider />
