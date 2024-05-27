@@ -1,4 +1,10 @@
-export const problemDeclaration = `Problem p = new Problem();`
+export const problemDeclaration = `Problem p = new Problem();`;
+
+export const graphDeclaration = `Graph graph = new Graph(p, 20, 0);`;
+
+export const graphAssertConnected = `graph.AssertConnected();`;
+
+export const pSolve = `p.Solve();`;
 
 export const graphClass = `public Graph(Problem p, int numVertices, float initialDensity = 0.5f)
 {

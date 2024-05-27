@@ -42,6 +42,7 @@ declare module "@mui/material/styles" {
     footerP: React.CSSProperties;
     listP: React.CSSProperties;
     codeP: React.CSSProperties;
+    inlineCodeP: React.CSSProperties;
   }
 
   interface TypographyVariantsOptions {
@@ -52,6 +53,7 @@ declare module "@mui/material/styles" {
     footerP?: React.CSSProperties;
     listP?: React.CSSProperties;
     codeP?: React.CSSProperties;
+    inlineCodeP?: React.CSSProperties;
   }
 }
 
@@ -64,6 +66,7 @@ declare module "@mui/material/Typography" {
     footerP: true;
     listP: true;
     codeP: true;
+    inlineCodeP: true;
   }
 }
 
@@ -163,6 +166,13 @@ export const theme = createTheme({
       fontSize: "1rem",
       fontWeight: 400,
     },
+    inlineCodeP: {
+      fontFamily: "monospace",
+      fontSize: "1.6rem",
+      fontWeight: 400,
+      textAlign: "justify",
+      lineHeight: "3rem",
+    }
   },
   components: {
     MuiTypography: {
@@ -175,6 +185,7 @@ export const theme = createTheme({
           footerP: "p",
           listP: "p",
           codeP: "p",
+          inlineCodeP: "p",
         },
       },
     },
