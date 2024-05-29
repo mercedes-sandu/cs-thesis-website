@@ -184,7 +184,7 @@ function GraphConstraints() {
             </ListItem>
           </List>
           <CollapsibleComponent
-            isExpanded={false}
+            open={false}
             title="DATA STRUCTURES"
             includeMargin={true}
           >
@@ -383,7 +383,7 @@ function GraphConstraints() {
             </Typography>
           </CollapsibleComponent>
           <CollapsibleComponent
-            isExpanded={false}
+            open={false}
             title="MAKING YOUR OWN GRAPH CONSTRAINTS"
             includeMargin={false}
           ></CollapsibleComponent>

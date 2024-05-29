@@ -1,6 +1,5 @@
 import React, {
   PropsWithChildren,
-  useCallback,
   useEffect,
   useRef,
   useState,
@@ -13,25 +12,36 @@ import { accentColor } from "../App";
 
 const CollapsibleComponent: React.FC<
   PropsWithChildren<{
-    isExpanded: boolean;
+    open: boolean;
     title: string;
     includeMargin: boolean;
   }>
-> = ({ isExpanded, children, title, includeMargin }) => {
+> = ({ open, children, title, includeMargin }) => {
   const theme = useTheme();
-  const [expanded, setExpanded] = useState<boolean>(isExpanded);
+  const [isOpen, setIsOpen] = useState<boolean>(open);
   const ref = useRef<HTMLDivElement>(null);
-  const [contentHeight, setContentHeight] = useState<number>(0);
+  const [height, setHeight] = useState<number | undefined>(open ? undefined : 0);
 
-  const toggleExpanded = useCallback(() => {
-    setExpanded((prev) => !prev);
-  }, []);
+  const toggleExpanded = () => {
+    setIsOpen((prev) => !prev);
+  };
 
   useEffect(() => {
-    if (ref.current) {
-      setContentHeight(ref.current.clientHeight);
-    }
-  }, [children]);
+    if (!height || !isOpen || !ref.current) return undefined;
+
+    const resizeObserver = new ResizeObserver((el) => {
+      setHeight(el[0].contentRect.height);
+    });
+    resizeObserver.observe(ref.current);
+    return () => {
+      resizeObserver.disconnect();
+    };
+  }, [height, isOpen]);
+
+  useEffect(() => {
+    if (isOpen) setHeight(ref.current?.getBoundingClientRect().height);
+    else setHeight(0);
+  }, [isOpen]);
 
   return (
     <Box
@@ -64,12 +74,12 @@ const CollapsibleComponent: React.FC<
             },
           }}
         >
-          {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+          {isOpen ? <ExpandLessIcon /> : <ExpandMoreIcon />}
         </IconButton>
       </Box>
       <Box
         sx={{
-          height: expanded ? contentHeight : 0,
+          height: isOpen ? height : 0,
           transition: "height 200ms ease-in-out",
           overflow: "hidden",
           width: "100%",
