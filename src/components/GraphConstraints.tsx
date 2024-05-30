@@ -15,6 +15,10 @@ import {
   connectInSpanningForestFunction,
   disconnectFunction,
   rebuildSpanningForestFunction,
+  customConstraintClass,
+  graphConnectedConstraintConstructor,
+  updateCustomConstraintFunction,
+  decompileFunction,
 } from "./CodeSnippets.ts";
 import CollapsibleComponent from "./CollapsibleComponent.tsx";
 
@@ -385,8 +389,276 @@ function GraphConstraints() {
           <CollapsibleComponent
             open={false}
             title="MAKING YOUR OWN GRAPH CONSTRAINTS"
+            includeMargin={true}
+          >
+            <Typography variant="sectionP" sx={{ mb: 3 }}>
+              New constraints to be imposed on a Graph to be generated can be
+              developed by creating a new C# class that is a subclass of
+              CustomConstraint. The general class structure is as follows:
+            </Typography>
+            <CodeSnippet
+              codeSnippet={customConstraintClass}
+              showTitle={true}
+              fileName="NewGraphConstraint.cs"
+            />
+            <Typography variant="sectionP" sx={{ mt: 3, mb: 3 }}>
+              Any class that inherits from CustomConstraint must override all of
+              the methods above. The constructor for the new graph constraint
+              must call the base constructor with the stated parameters, but can
+              also include additional parameters and initialize them accordingly
+              in the body of the constructor. For example,
+              GraphConnectedConstraint has constructor
+            </Typography>
+            <CodeSnippet
+              codeSnippet={graphConnectedConstraintConstructor}
+              showTitle={true}
+              fileName="GraphConnectedConstraint.cs"
+            />
+            <Typography variant="sectionP" sx={{ mt: 3, mb: 3 }}>
+              CustomFlipRisk is a method that returns an integer associated with
+              the risk or cost of flipping a specified SAT variable to a new
+              value. For the integer that is returned, negative values
+              correspond to a favorable flip, positive values correspond to an
+              unfavorable flip, and zero corresponds to neither risk nor reward.
+              This method is required to determine which variable is favorable
+              to flip by the GreedyFlip method of the solver.
+            </Typography>
+            <Typography variant="sectionP" sx={{ mb: 3 }}>
+              UpdateCustomConstraint updates the current solver's list of
+              unsatisfied constraints when a SAT variable is flipped. Any
+              additional data relevant to the constraint should also be updated.
+              In general, it should look something like this:
+            </Typography>
+            <CodeSnippet
+              codeSnippet={updateCustomConstraintFunction}
+              showTitle={true}
+              fileName="NewGraphConstraint.cs"
+            />
+            <Typography variant="sectionP" sx={{ mt: 3, mb: 3 }}>
+              IsSatisfied is called once the problem being solved is created
+              with an initial random state, assessing whether the constraint has
+              been satisfied without any variables being flipped.
+            </Typography>
+            <Typography variant="sectionP" sx={{ mb: 3 }}>
+              EquivalentTo checks if the constraint is a copy of or is identical
+              to the constraint passed to it.
+            </Typography>
+            <Typography variant="sectionP" sx={{ mb: 3 }}>
+              Decompile creates a texture representation of the constraint,
+              purely for debugging purposes. In most cases, it is useful to
+              append the name of the constraint to the string builder:
+            </Typography>
+            <CodeSnippet
+              codeSnippet={decompileFunction}
+              showTitle={true}
+              fileName="NewGraphConstraint.cs"
+            />
+            <Typography variant="sectionP" sx={{ mt: 3 }}>
+              The remaining functions are for pseudo-boolean constraints which
+              involve cardinalities of variables. I did not find myself needing
+              to implement them, but you may.
+            </Typography>
+          </CollapsibleComponent>
+          <CollapsibleComponent
+            open={false}
             includeMargin={false}
-          ></CollapsibleComponent>
+            title="CONSTRAINT IDEAS"
+          >
+            <Typography variant="sectionP">
+              Below I present a list of constraints I wanted to implement but
+              did not have time to. If you are interested in implementing them,
+              I would be happy to help you get started!
+            </Typography>
+            <List sx={{ listStyleType: "disc", pl: 4 }}>
+              <ListItem sx={{ display: "list-item" }}>
+                <ListItemText
+                  primary={
+                    <Typography variant="listP" display="inline">
+                      <Typography variant="inlineCodeP" display="inline">
+                        GraphCompleteConstraint
+                      </Typography>
+                      : The graph generated must be complete (every possible
+                      edge in the graph is present)
+                    </Typography>
+                  }
+                />
+              </ListItem>
+              <ListItem sx={{ display: "list-item" }}>
+                <ListItemText
+                  primary={
+                    <Typography variant="listP" display="inline">
+                      <Typography variant="inlineCodeP" display="inline">
+                        NConnectedComponentsConstraint
+                      </Typography>
+                      : The graph generated must have a specified number of
+                      connected components, n. Note that I started to implement
+                      this one, but some debugging must be done
+                    </Typography>
+                  }
+                />
+              </ListItem>
+              <ListItem sx={{ display: "list-item" }}>
+                <ListItemText
+                  primary={
+                    <Typography variant="listP" display="inline">
+                      <Typography variant="inlineCodeP" display="inline">
+                        StronglyConnectedComponentConstraint
+                      </Typography>
+                      : The graph generated must contain a strongly connected
+                      component
+                    </Typography>
+                  }
+                />
+              </ListItem>
+              <ListItem sx={{ display: "list-item" }}>
+                <ListItemText
+                  primary={
+                    <Typography variant="listP" display="inline">
+                      <Typography variant="inlineCodeP" display="inline">
+                        NodesNotConnectedConstraint
+                      </Typography>
+                      : The vertices n and m in a graph must not be connected
+                      via any path
+                    </Typography>
+                  }
+                />
+              </ListItem>
+              <ListItem sx={{ display: "list-item" }}>
+                <ListItemText
+                  primary={
+                    <Typography variant="listP" display="inline">
+                      <Typography variant="inlineCodeP" display="inline">
+                        PathOfLengthConstraint
+                      </Typography>
+                      : If possible, the path between the vertices n and m in
+                      the graph must be of a specified length
+                    </Typography>
+                  }
+                />
+              </ListItem>
+              <ListItem sx={{ display: "list-item" }}>
+                <ListItemText
+                  primary={
+                    <Typography variant="listP" display="inline">
+                      <Typography variant="inlineCodeP" display="inline">
+                        CycleConstraint
+                      </Typography>
+                      : The graph generated must have a cycle
+                    </Typography>
+                  }
+                />
+              </ListItem>
+              <ListItem sx={{ display: "list-item" }}>
+                <ListItemText
+                  primary={
+                    <Typography variant="listP" display="inline">
+                      <Typography variant="inlineCodeP" display="inline">
+                        CycleOfLengthConstraint
+                      </Typography>
+                      : The graph generated must have a cycle of a specified
+                      length
+                    </Typography>
+                  }
+                />
+              </ListItem>
+              <ListItem sx={{ display: "list-item" }}>
+                <ListItemText
+                  primary={
+                    <Typography variant="listP" display="inline">
+                      <Typography variant="inlineCodeP" display="inline">
+                        PathThroughVertexConstraint
+                      </Typography>
+                      : The vertices n and m must be connected via a path that
+                      passes through a third specified vertex, v
+                    </Typography>
+                  }
+                />
+              </ListItem>
+              <ListItem sx={{ display: "list-item" }}>
+                <ListItemText
+                  primary={
+                    <Typography variant="listP" display="inline">
+                      <Typography variant="inlineCodeP" display="inline">
+                        TreeConstraint
+                      </Typography>
+                      : The graph generated must be acyclic and connected
+                    </Typography>
+                  }
+                />
+              </ListItem>
+              <ListItem sx={{ display: "list-item" }}>
+                <ListItemText
+                  primary={
+                    <Typography variant="listP" display="inline">
+                      <Typography variant="inlineCodeP" display="inline">
+                        ForestConstraint
+                      </Typography>
+                      : The graph generated must only consist of connected
+                      components that are acyclic
+                    </Typography>
+                  }
+                />
+              </ListItem>
+              <ListItem sx={{ display: "list-item" }}>
+                <ListItemText
+                  primary={
+                    <Typography variant="listP" display="inline">
+                      <Typography variant="inlineCodeP" display="inline">
+                        GraphColoringConstraint
+                      </Typography>
+                      : The graph generated must be properly colored with a
+                      specified number c of colors
+                    </Typography>
+                  }
+                />
+              </ListItem>
+              <ListItem sx={{ display: "list-item" }}>
+                <ListItemText
+                  primary={
+                    <Typography variant="listP" display="inline">
+                      <Typography variant="inlineCodeP" display="inline">
+                        IndependentSetConstraint
+                      </Typography>
+                      : The graph generated must contain a maximum independent
+                      set, where no two vertices in the set are adjacent
+                    </Typography>
+                  }
+                />
+              </ListItem>
+              <ListItem sx={{ display: "list-item" }}>
+                <ListItemText
+                  primary={
+                    <Typography variant="listP" display="inline">
+                      <Typography variant="inlineCodeP" display="inline">
+                        GraphSymmetryConstraint
+                      </Typography>
+                      : The graph generated must have specified symmetry
+                      (mirror, rotational, etc.)
+                    </Typography>
+                  }
+                />
+              </ListItem>
+              <ListItem sx={{ display: "list-item" }}>
+                <ListItemText
+                  primary={
+                    <Typography variant="listP" display="inline">
+                      <Typography variant="inlineCodeP" display="inline">
+                        PlanarGraphConstraint
+                      </Typography>
+                      : The graph generated must be planar (edges can be drawn
+                      such that no pai rof edges intersects except for at
+                      endpoints)
+                    </Typography>
+                  }
+                />
+              </ListItem>
+            </List>
+            <Typography variant="sectionP">
+              Of course, this list is not exhaustive! If you have any ideas for
+              new constraints, I would love to hear them and add them to this
+              list.
+            </Typography>
+          </CollapsibleComponent>
         </Box>
       </Box>
       <StyledDivider />

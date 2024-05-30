@@ -83,3 +83,87 @@ export const rebuildSpanningForestFunction = `private void RebuildSpanningForest
 
     _spanningForestBuilt = true;
 }`;
+
+export const customConstraintClass = `public class NewGraphConstraint : CustomConstraint
+{
+    public NewGraphConstraint(bool isDisjunction, ushort min, 
+        short[] disjuncts, int extraHash) 
+        : base (isDisjunction, min, disjuncts, extraHash) {}
+
+    public override int CustomFlipRisk(ushort index, 
+        bool newValue) {}
+
+    public override void UpdateCustomConstraint(BooleanSolver b, 
+        ushort pIndex, bool newValue) {}
+
+    public override bool IsSatisfied(ushort satisfiedDisjuncts) {}
+
+    internal override bool EquivalentTo(Constraint c) {}
+
+    internal override void Decompile(Problem p, StringBuilder b) {}
+
+    public override int ThreatCountDeltaIncreasing(ushort count) {}
+
+    public override int ThreatCountDeltaDecreasing(ushort count) {}
+
+    public override void UpdateTruePositiveAndFalseNegative
+        (BooleanSolver b) {}
+
+    public override void UpdateTrueNegativeAndFalsePositive
+        (BooleanSolver b) {}
+
+    public override bool MaxFalseLiterals(int falseLiterals) {}
+
+    public override bool MaxTrueLiterals(int trueLiterals) {}
+
+    // Other functions for pseudo-boolean constraints
+}`;
+
+export const graphConnectedConstraintConstructor = `public GraphConnectedConstructor(Graph graph) 
+    : base(false, (ushort)short.MaxValue, graph.EdgeVariables, 1) 
+{
+    Graph = graph;
+    foreach (EdgeProposition edge in graph.SATVariableToEdge.Values)
+    {
+        graph.Problem.SATVariables[edge.Index].CustomConstraints
+            .Add(this);
+    }
+}`;
+
+export const updateCustomConstraintFunction = `public override void UpdateCustomConstraint
+    (BooleanSolver b, ushort pIndex, bool adding)
+{
+    EdgeProposition edge = Graph.SATVariableToEdge[pIndex];
+    if (adding)
+    {
+        // Update the graph accordingly
+        // For example:
+        Graph.ConnectInSpanningForest(edge.SourceVertex, 
+            edge.DestinationVertex);
+
+        // Check if the constraint is now satisfied and previously was not
+        if (constraintSatisfied && b.UnsatisfiedClauses.Contains(Index))
+        {
+            // Remove this constraint (which has index "Index") from the list of unsatisfied constraints
+            b.UnsatisfiedClauses.Remove(Index);
+        }
+    }
+    else
+    {
+        // Update the graph accordingly
+        // For example:
+        Graph.Disconnect(edge.SourceVertex, edge.DestinationVertex);
+
+        // Check if the constraint is now unsatisfied and previously was satisfied
+        if (constraintUnsatisfied && previouslySatisfied)
+        {
+            // Add this constraint to the list of unsatisfied constraints
+            b.UnsatisfiedClauses.Add(Index);
+        }
+    }
+}`;
+
+export const decompileFunction = `internal override void Decompile(Problem p, StringBuilder b)
+{
+    b.Append("NewGraphConstraint");
+}`;
