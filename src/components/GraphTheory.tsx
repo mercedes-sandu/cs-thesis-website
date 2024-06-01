@@ -126,7 +126,18 @@ function GraphTheory() {
               />
             </ListItem>
           </List>
-          <Typography variant="sectionP"></Typography>
+          <Typography variant="sectionSubheader" sx={{ mb: 3 }}>
+            Connectivity and Pathfinding
+          </Typography>
+          <Typography variant="sectionP" sx={{ mb: 3 }}>
+            Blah blah yap yap
+          </Typography>
+          <Typography variant="sectionSubheader" sx={{ mb: 3 }}>
+            Examples
+          </Typography>
+          <Typography variant="sectionP">
+            Blah blah yap yap
+          </Typography>
         </Box>
       </Box>
       <StyledDivider />
