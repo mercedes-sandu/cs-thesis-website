@@ -126,17 +126,55 @@ function GraphTheory() {
               />
             </ListItem>
           </List>
+          <Typography variant="sectionP" sx={{ mb: 3 }}>
+            A graph can also consist of some number of{" "}
+            <BoldText>subgraphs</BoldText>, which consist of a subset of
+            vertices and edges from the larger graph.{" "}
+            <BoldText>Bridges</BoldText> are edges that, when removed, increase
+            the number of connected components in a graph, and are often
+            connecting separate subgraphs.
+          </Typography>
           <Typography variant="sectionSubheader" sx={{ mb: 3 }}>
             Connectivity and Pathfinding
           </Typography>
           <Typography variant="sectionP" sx={{ mb: 3 }}>
-            Blah blah yap yap
+            One of the most important problems in graph theory is determining
+            whether a graph is <BoldText>connected</BoldText>. A graph is
+            connected if there is a path between every pair of vertices. A
+            <BoldText>connected component</BoldText> is a subgraph in which
+            every pair of vertices has a path between them. A graph can have
+            multiple connected components. There are a handful of algorithms
+            used to create connected graphs, such as{" "}
+            <BoldText>Floyd-Warshall</BoldText>, or verify connectivity, such as{" "}
+            <BoldText>Breadth-First Search (BFS)</BoldText> and{" "}
+            <BoldText>Depth-First Search (DFS)</BoldText>.
           </Typography>
-          <Typography variant="sectionSubheader" sx={{ mb: 3 }}>
-            Examples
+          <Typography variant="sectionP" sx={{ mb: 3 }}>
+            The Floyd-Warshall algorithm is used to find the shortest path
+            between all pairs of vertices in a graph, essentially connecting all
+            vertices in the graph. Its time complexity is O(V^3), where V is the
+            number of vertices in the graph, which is quite slow. Breadth-First
+            Search (BFS) and Depth-First Search (DFS) are two algorithms that
+            are used to traverse graphs and find paths between vertices. BFS and
+            DFS are typically used to search a graph for a node that meets a set
+            of criteria. BFS begins searching at the root and inspects all nodes
+            at the current depth level before moving on to nodes at the next
+            depth level. Its time complexity is O(V + E), where V is the number
+            of vertices and E is the number of edges. DFS is used to traverse or
+            search a graph by exploring as far as possible along each branch
+            before backtracking. Its time complexity is O(V + E), where V is the
+            number of vertices and E is the number of edges.
           </Typography>
           <Typography variant="sectionP">
-            Blah blah yap yap
+            Another important problem in graph theory is finding the shortest
+            path between two vertices in a graph.{" "}
+            <BoldText>Dijkstra's</BoldText> algorithm is used to find the
+            shortest path between a source vertex and all other vertices in a
+            graph. The algorithm works by maintaining a set of vertices whose
+            shortest distance from the source is known. The time complexity of
+            Dijkstra's algorithm is O(V^2) for an adjacency matrix
+            representation of a graph and O(E + V log V) for an adjacency list
+            representation of a graph.
           </Typography>
         </Box>
       </Box>

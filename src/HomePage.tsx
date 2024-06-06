@@ -7,6 +7,7 @@ import SATSolvers from "./components/SATSolvers.tsx";
 import GraphConstraints from "./components/GraphConstraints.tsx";
 import Conclusion from "./components/Conclusion.tsx";
 import Footer from "./components/Footer.tsx";
+import Applications from "./components/Applications.tsx";
 
 function HomePage() {
   const theme = useTheme();
@@ -27,6 +28,7 @@ function HomePage() {
       <GraphTheory />
       <SATSolvers />
       <GraphConstraints />
+      <Applications />
       <Conclusion />
       <Footer />
     </Box>

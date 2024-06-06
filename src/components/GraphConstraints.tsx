@@ -659,6 +659,48 @@ function GraphConstraints() {
               list.
             </Typography>
           </CollapsibleComponent>
+          <Typography variant="sectionSubheader" sx={{ mt: 6, mb: 3 }}>
+            GraphConnectedConstraint
+          </Typography>
+          <Typography variant="sectionP" sx={{ mb: 3 }}>
+            Blah blah yap yap
+          </Typography>
+          <Typography variant="sectionSubheader" sx={{ mb: 3 }}>
+            SubsetConnectedConstraint
+          </Typography>
+          <Typography variant="sectionP" sx={{ mb: 3 }}>
+            Blah blah yap yap
+          </Typography>
+          <Typography variant="sectionSubheader" sx={{ mb: 3 }}>
+            NodesConnectedConstraint
+          </Typography>
+          <Typography variant="sectionP" sx={{ mb: 3 }}>
+            Blah blah yap yap
+          </Typography>
+          <Typography variant="sectionSubheader" sx={{ mb: 3 }}>
+            Density
+          </Typography>
+          <Typography variant="sectionP" sx={{ mb: 3 }}>
+            Blah blah yap yap
+          </Typography>
+          <Typography variant="sectionSubheader" sx={{ mb: 3 }}>
+            VertexDegree
+          </Typography>
+          <Typography variant="sectionP" sx={{ mb: 3 }}>
+            Blah blah yap yap
+          </Typography>
+          <Typography variant="sectionSubheader" sx={{ mb: 3 }}>
+            Bridges
+          </Typography>
+          <Typography variant="sectionP" sx={{ mb: 3 }}>
+            Blah blah yap yap
+          </Typography>
+          <Typography variant="sectionSubheader" sx={{ mb: 3 }}>
+            Multiple Constraints in One Problem
+          </Typography>
+          <Typography variant="sectionP">
+            Blah blah yap yap
+          </Typography>
         </Box>
       </Box>
       <StyledDivider />

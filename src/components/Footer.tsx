@@ -1,5 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import { StyledLink } from "../StyledComponents";
+import thesis from "../CS_Thesis_Mercedes_Sandu.pdf";
 
 function Footer() {
   return (
@@ -29,9 +30,8 @@ function Footer() {
           Mercedes Sandu
         </StyledLink>
         <Typography variant="footerP">//</Typography>
-        {/* TODO: add */}
         <StyledLink
-          href="#"
+          href={thesis}
           variant="footerP"
           rel="noopener noreferrer"
           target="_blank"
