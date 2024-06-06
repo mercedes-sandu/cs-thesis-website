@@ -7,6 +7,7 @@ interface CodeSnippetProps {
   fileName?: string;
   codeSnippet: string;
   showTitle: boolean;
+  nextToFigure?: boolean;
 }
 
 function CodeSnippet(props: CodeSnippetProps) {
@@ -18,6 +19,7 @@ function CodeSnippet(props: CodeSnippetProps) {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        width: "100%",
         mb: 3,
       }}
     >
@@ -26,7 +28,7 @@ function CodeSnippet(props: CodeSnippetProps) {
           width: "fit-content",
           height: "fit-content",
           maxWidth: "80%",
-          minWidth: "40%",
+          minWidth: props.nextToFigure ? "80%" : "40%",
           pt: props.showTitle ? 3 : 0,
           pl: 3,
           pr: 3,

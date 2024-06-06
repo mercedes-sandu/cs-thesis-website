@@ -167,3 +167,153 @@ export const decompileFunction = `internal override void Decompile(Problem p, St
 {
     b.Append("NewGraphConstraint");
 }`;
+
+export const graphConnectedExample = `Problem p = new Problem();
+Graph g = new Graph(p, 15);
+g.AssertConnected();
+p.Solve();`;
+
+export const subsetConnectedExample = `Problem p = new Problem();
+Graph g = new Graph(p, 10);
+Subgraph s1 = new Subgraph(g, new[] { 0, 1, 2, 3, 4 });
+Subgraph s2 = new Subgraph(g, new[] { 7, 8, 9 });
+s1.AssertConnected();
+s2.AssertConnected();
+p.Solve();`;
+
+export const nodesConnectedExample = `Problem p = new Problem();
+Graph g = new Graph(p, 10);
+g.AssertNodesConnected(0, 5);
+g.AssertNodesConnected(1, 6);
+p.Solve();`;
+
+export const densityExample = `Problem p = new Problem();
+Graph g = new Graph(p, 20);
+g.Density(0.05f, 0.1f);
+g.AssertConnected();
+p.Solve();`;
+
+export const cycleExample = `Problem p = new Problem();
+Graph g = new Graph(p, 10);
+foreach (int v in g.Vertices)
+{
+    g.VertexDegree(v, 2, 2);
+}
+g.AssertConnected();
+p.Solve();`;
+
+export const binaryTreeExample = `const int n = 21;
+Problem p = new Problem();
+Graph g = new Graph(p, n);
+for (int i = 0; i < g.Vetices.Length; i++)
+{
+    if (i < (n + 1) / 2)
+        g.VertexDegree(i, 1, 1);
+    else if (i == g.Vertices.Length - 1)
+        g.VertexDegree(i, 2, 2);
+    else
+        g,VertexDegree(i, 3, 3);
+}
+g.AssertConnected();
+p.Solve();`;
+
+export const bridgesExample = `Problem p = new Problem();
+Graph g = new Graph(p, 12, 0);
+Subgraph s1 = new Subgraph(g, new[] { 0, 1, 2 });
+Subgraph s2 = new Subgraph(g, new[] { 3, 4, 5 });
+s1.AssertConnected();
+s2.AssertConnected();
+g.AssertNBridges(2, 2, s1, s2);
+p.Solve();`;
+
+export const multipleConstraintsExample = `Problem p = new Problem();
+Graph g = new Graph(p, 15);
+Subgraph s1 = new Subgraph(g, new[] { 1, 2, 3, 4, 5 });
+Subgraph s2 = new Subgraph(g, new[] { 10, 13 });
+Subgraph s3 = new Subgraph(g, new[] { 12 });
+s1.AssertConnected();
+s2.AssertConnected();
+g.Density(0.2f, 0.3f);
+g.AssertNodesConnected(0, 10);
+g.AssertNodesConnected(9, 14);
+g.VertexDegree(12, 4, 5);
+g.AssertConnected();
+p.Solve();`;
+
+export const graphConnectedCustomFlipRisk = `public override int CustomFlipRisk(ushort index, bool adding)
+{
+    int componentCount = SpanningForest.ConnectedComponentCount;
+    if (componentCount == 1 && adding) return 0;
+    EdgeProposition edge = Graph.SATVariableToEdge[index];
+    return adding ? AddingRisk(edge) : RemovingRisk(edge);
+}`;
+
+export const graphConnectedAddingRisk = `private int AddingRisk(EdgeProposition edge) => 
+    Graph.AreConnected(edge.SourceVertex, edge.DestinationVertex) ? 0 : EdgeAdditionRisk;`;
+
+export const graphConnectedRemovingRisk = `private int RemovingRisk(EdgeProposition edge) => 
+    SpanningForest.Contains(edge.Index) ? EdgeRemovalRisk : 0;`;
+
+export const nodesConnectedCustomFlipRisk = `public override int CustomFlipRisk(ushort index, bool adding)
+{
+    EdgeProposition edge = Graph.SATVariableToEdge[index];
+    bool previouslyConnected = Graph.AreConnected(edge.SourceVertex, edge.DestinationVertex);
+    if (previouslyConnected && adding) return 0;
+    return adding ? AddingRisk(edge) : RemovingRisk(edge);
+}`;
+
+export const nodesConnectedAddingRisk = `private int AddingRisk(EdgeProposition edge)
+{
+    if (SpanningForest.WouldConnect(SourceNode, DestinationNode, edge)) return EdgeAdditionRisk * 2;
+    return Graph.AreConnected(edge.SourceVertex, edge.DestinationVertex) ? 0 : EdgeAdditionRisk;
+}`;
+
+export const nodesConnectedRemovingRiskNoPath = `private int RemovingRisk(EdgeProposition edge) =>
+    SpanningForest.Contains(edge.Index) ? EdgeRemovalRisk : 0;`;
+
+export const nodesConnectedRemovingRiskPath = `private int RemovingRisk(EdgeProposition edge) =>
+    _edgesInPath.Contains(edge.Index) ? EdgeRemovalRisk * 2 : 0;`;
+
+export const densityFunction = `public void Density(float min, float max)
+{
+    int edgeCount = SATVariableToEdge.Count;
+    IEnumerable<EdgeProposition> edges = SATVariableToEdge.Values;
+    int minEdges = (int)Math.Round(min * edgeCount);
+    int maxEdges = (int)Math.Round(max * edgeCount);
+    Problem.Quantify(minEdges, maxEdges, edges);
+}`;
+
+export const vertexDegreeFunction = `public void VertexDegree(int vertex, int min, int max)
+{
+    IEnumerable<EdgeProposition> incidentEdges = from v in Vertices where v != vertex select Edges(v, vertex);
+    Problem.Quantify(min, max, incidentEdges);
+}`;
+
+export const edgesBetweenSubgraphsFunction = `private IEnumerable<EdgeProposition> EdgesBetweenSubgraphs(Subgraph s1, Subgraph s2)
+{
+    List<EdgeProposition> edges =
+        (from v1 in s1.Vertices from v2 in s2.Vertices select Edges(v1, v2)).ToList();
+    return edges;
+}`
+
+export const assertNBridgesFunction = `public void AssertNBridges(int min, int max, Subgraph s1, Subgraph s2)
+{
+    IEnumerable<EdgeProposition> bridges = EdgesBetweenSubgraphs(s1, s2);
+    Problem.Quantify(min, max, bridges);
+}`;
+
+export const interpretingResults = `public void InterpretingResults()
+{
+    Problem p = new Problem();
+    Graph g = new Graph(p, 10);
+    g.AssertNodesConnected(0, 1);
+    g.AssertConnected();
+    Solution s = p.Solve();
+}`;
+
+export const verticesCode = `int[] vertices = g.Vertices;`;
+
+export const edgesCode = `IEnumerable<EdgeProposition> allEdges = g.SATVariableToEdge.Values;`;
+
+export const edgesInSolution = `IEnumerable<EdgeProposition> edgesInSolution = 
+    g.SATVariableToEdge.Select(pair => pair.Value).Where(edge => s[edge]);`;

@@ -34,7 +34,23 @@ function Conclusion() {
           <Typography variant="sectionHeader" sx={{ mb: 3 }}>
             CONCLUSION
           </Typography>
-          <Typography variant="sectionP">Blah blah blah yap yap yap</Typography>
+          <Typography variant="sectionP">
+            SAT-based systems are outstanding to utilize in the field of PCG due
+            to their flexibility, speed, and high level of expression available
+            to the user. However, traditionally, it has been difficult to
+            implement the generation of random connected graphs, let alone
+            impose other kinds of constraints on a randomly generated graph. By
+            expanding CatSAT with support for graph constraints such as
+            connectivity, required paths between nodes, and density, users of
+            the system can generate graphs as data structures for games in a
+            timely manner by creating a problem and adding as many constraints
+            as they desire. The expansion of CatSAT in this way also allows
+            users to create constraints of their own, provided they have
+            sufficient knowledge of logic programming, C# development, and graph
+            theory. Problems for graphs can be solved in milliseconds with
+            relatively few lines of code, with solutions that can be applied to
+            a wide variety of content in video games.
+          </Typography>
         </Box>
       </Box>
       <StyledDivider />

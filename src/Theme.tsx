@@ -143,23 +143,23 @@ export const theme = createTheme({
     },
     sectionP: {
       fontFamily: "Manrope",
-      fontSize: "26px",
+      fontSize: "22px",
       textAlign: "justify",
       fontWeight: 400,
       textIndent: "64px",
-      lineHeight: "48px",
+      lineHeight: "42px",
     },
     footerP: {
       fontFamily: "Manrope",
-      fontSize: "22px",
+      fontSize: "18px",
       fontWeight: 400,
     },
     listP: {
       fontFamily: "Manrope",
-      fontSize: "26px",
+      fontSize: "22px",
       fontWeight: 400,
       textAlign: "justify",
-      lineHeight: "48px",
+      lineHeight: "42px",
     },
     codeP: {
       fontFamily: "monospace",
@@ -168,10 +168,10 @@ export const theme = createTheme({
     },
     inlineCodeP: {
       fontFamily: "monospace",
-      fontSize: "26px",
+      fontSize: "22px",
       fontWeight: 400,
       textAlign: "justify",
-      lineHeight: "48px",
+      lineHeight: "42px",
     }
   },
   components: {
